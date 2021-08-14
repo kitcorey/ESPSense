@@ -73,7 +73,7 @@ async def to_code(config):
             voltage_sensor = await cg.get_variable(plug_config[CONF_VOLTAGE_SENSOR])
             cg.add(plug_var.set_voltage_sensor(voltage_sensor))
         if CONF_MAC_ADDRESS in plug_config:
-            cg.add(plug_var.set_mac_address(plug_config[CONF_MAC_ADDRESS]))
+            cg.add(plug_var.set_mac_address(str(plug_config[CONF_MAC_ADDRESS])))
         cg.add(plug_var.set_voltage(plug_config[CONF_VOLTAGE]))
         cg.add(plug_var.set_encrypt(plug_config[CONF_ENCRYPT]))
         cg.add(var.addPlug(plug_var))
